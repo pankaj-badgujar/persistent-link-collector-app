@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,5 +49,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void showAbout(View view){
+        TextView nameText = findViewById(R.id.nameText);
+        TextView emailText = findViewById(R.id.emailText);
+
+        nameText.setText(R.string.name);
+        emailText.setText(R.string.email);
+
     }
 }
