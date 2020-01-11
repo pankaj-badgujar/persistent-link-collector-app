@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">NUMADS20-PankajBadgujar</string>
     <string name="action_settings">Settings</string>
+    <string name="about">About</string>
+    <string name="name">Pankaj Badgujar</string>
+    <string name="email">badgujarpankaj24@gmail.com</string>
 </resources>
