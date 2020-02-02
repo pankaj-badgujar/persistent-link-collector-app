@@ -4,4 +4,7 @@
     <string name="about">About</string>
     <string name="name">Pankaj Badgujar</string>
     <string name="email">badgujarpankaj24@gmail.com</string>
+    <string name="hello_world_btn_txt">Hello World</string>
+    <string name="link_collector_btn_txt">Link Collector</string>
+    <string name="title_activity_link_collector">Link Collector</string>
 </resources>
