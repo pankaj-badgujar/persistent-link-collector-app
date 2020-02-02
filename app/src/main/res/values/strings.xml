@@ -7,4 +7,9 @@
     <string name="hello_world_btn_txt">Hello World</string>
     <string name="link_collector_btn_txt">Link Collector</string>
     <string name="title_activity_link_collector">Link Collector</string>
+    <string name="saved_links">Saved Links</string>
+    <string name="link_name">Link Name :</string>
+    <string name="url_text">URL :</string>
+    <string name="save_text">Save</string>
+    <string name="cancel_text">CANCEL</string>
 </resources>
