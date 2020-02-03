@@ -3,6 +3,8 @@ package edu.neu.madcourse.numads20_pankajbadgujar;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,7 +33,6 @@ import java.util.logging.Logger;
 
 public class LinkCollector extends AppCompatActivity {
 
-    public Map<String, String> urlMap = new HashMap<>();
     final Context context = this;
 
     @Override
@@ -43,9 +44,6 @@ public class LinkCollector extends AppCompatActivity {
 
         final List<String[]> linkNameList = new ArrayList<>();
 
-        //adding dummy values
-        linkNameList.add(new String[]{"pankaj", "badgujar"});
-        linkNameList.add(new String[]{"priyanka", "karodpati"});
 
         //creating array adapter for simple_list_item_2
         ArrayAdapter<String[]> adapter = new ArrayAdapter<String[]>(this,
@@ -70,10 +68,15 @@ public class LinkCollector extends AppCompatActivity {
         ListView listView = findViewById(R.id.linkList);
         listView.setAdapter(adapter);
 
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Snackbar.make(view,linkNameList.get(position)[1],Snackbar.LENGTH_LONG).show();
+                String URL = linkNameList.get(position)[1];
+                Uri uri = Uri.parse("http://"+URL);
+                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                startActivity(intent);
             }
         });
 
@@ -83,14 +86,14 @@ public class LinkCollector extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // get prompts.xml view
+                // get input_prompt.xml view
                 LayoutInflater layoutInflater = LayoutInflater.from(context);
                 final View parentView = view;
                 final View promptView = layoutInflater.inflate(R.layout.input_prompt, null);
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
-                // set prompts.xml to be the layout file of the alertdialog builder
+                // set input_prompt.xml to be the layout file of the inputDialog builder
                 alertDialogBuilder.setView(promptView);
 
                 final EditText nameInput = (EditText) promptView.findViewById(R.id.linkNameInput);
@@ -104,14 +107,20 @@ public class LinkCollector extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int id) {
                                 // get user input and set it to result
 
+                                if(linkNameList.size() < 1){
+                                    TextView noLinksLabel = findViewById(R.id.noLinksSavedLabel);
+                                    noLinksLabel.setVisibility(View.INVISIBLE);
+                                }
+
                                 String name = nameInput.getText().toString();
                                 String url = urlInput.getText().toString();
 
-                                urlMap.put(name, url);
                                 linkNameList.add(new String[]{name, url});
 
                                 Snackbar.make(parentView, name + " is added", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();
+
+
 
 
                             }

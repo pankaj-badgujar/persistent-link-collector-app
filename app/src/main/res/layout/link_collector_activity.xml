@@ -37,6 +37,14 @@
             android:layout_margin="25dp"
             android:textAlignment="center" />
 
+        <TextView
+            android:id="@+id/noLinksSavedLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_links_saved_yet"
+            android:textColor="@color/colorAccent" />
+
 
         <ListView
             android:id="@+id/linkList"
