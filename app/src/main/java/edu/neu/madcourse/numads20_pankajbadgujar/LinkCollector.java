@@ -54,8 +54,8 @@ public class LinkCollector extends AppCompatActivity {
 
                 String[] entry = linkNameList.get(position);
 
-                TextView text1 = (TextView)view.findViewById(android.R.id.text1);
-                TextView text2 = (TextView)view.findViewById(android.R.id.text2);
+                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
                 text1.setText(entry[0]);
                 text2.setText(entry[1]);
 
@@ -69,13 +69,12 @@ public class LinkCollector extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String URL = linkNameList.get(position)[1];
-                Uri uri = Uri.parse("http://"+URL);
-                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                Uri uri = Uri.parse("http://" + URL);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
         });
@@ -105,22 +104,25 @@ public class LinkCollector extends AppCompatActivity {
                         .setCancelable(false)
                         .setPositiveButton("Save", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                // get user input and set it to result
-
-                                if(linkNameList.size() < 1){
-                                    TextView noLinksLabel = findViewById(R.id.noLinksSavedLabel);
-                                    noLinksLabel.setVisibility(View.INVISIBLE);
-                                }
 
                                 String name = nameInput.getText().toString();
                                 String url = urlInput.getText().toString();
 
-                                linkNameList.add(new String[]{name, url});
+                                if (name.equalsIgnoreCase("") || url.equalsIgnoreCase("")) {
+                                    Toast.makeText(context, "Name and URL is required! ", Toast.LENGTH_LONG).show();
+                                } else {
+                                    if (linkNameList.size() < 1) {
+                                        TextView noLinksLabel = findViewById(R.id.noLinksSavedLabel);
+                                        noLinksLabel.setVisibility(View.INVISIBLE);
+                                    }
 
-                                Snackbar.make(parentView, name + " is added", Snackbar.LENGTH_LONG)
-                                        .setAction("Action", null).show();
+                                    linkNameList.add(new String[]{name, url});
+
+                                    Snackbar.make(parentView, name + " is added", Snackbar.LENGTH_LONG)
+                                            .setAction("Action", null).show();
 
 
+                                }
 
 
                             }
@@ -140,7 +142,6 @@ public class LinkCollector extends AppCompatActivity {
             }
         });
     }
-
 
 
 }
