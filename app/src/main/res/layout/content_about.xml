@@ -5,33 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:context=".About"
+    tools:layout_editor_absoluteY="56dp"
+    tools:showIn="@layout/about_activity">
 
     <TextView
         android:id="@+id/helloWorldText"
-        android:layout_width="356dp"
+        android:layout_width="363dp"
         android:layout_height="0dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="177dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginBottom="39dp"
         android:text="Hello World!"
-        app:layout_constraintBottom_toTopOf="@+id/emailText"
+        android:textAlignment="center"
+        android:textColor="#F44336"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/aboutButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/aboutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginBottom="512dp"
+        android:layout_width="161dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="81dp"
         android:onClick="showAbout"
         android:text="@string/about"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/nameText"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/helloWorldText" />
 
@@ -39,21 +41,28 @@
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="479dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/aboutButton"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/aboutButton"
-        app:layout_constraintTop_toBottomOf="@+id/helloWorldText"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_marginStart="71dp"
+        android:layout_marginBottom="44dp"
+        android:textAlignment="textStart"
+        android:textColor="#673AB7"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/emailText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutButton" />
 
     <TextView
         android:id="@+id/emailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="416dp"
+        android:layout_marginBottom="260dp"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="#4CAF50"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/nameText"
-        app:layout_constraintTop_toBottomOf="@+id/helloWorldText" />
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
