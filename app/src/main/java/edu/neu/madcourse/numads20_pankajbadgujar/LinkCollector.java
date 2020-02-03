@@ -15,9 +15,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -28,8 +31,7 @@ import java.util.logging.Logger;
 
 public class LinkCollector extends AppCompatActivity {
 
-    public List<String> linkNameList = new ArrayList<>();
-    public Map<String,String> urlMap = new HashMap<>();
+    public Map<String, String> urlMap = new HashMap<>();
     final Context context = this;
 
     @Override
@@ -39,11 +41,42 @@ public class LinkCollector extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        final List<String[]> linkNameList = new ArrayList<>();
 
+        //adding dummy values
+        linkNameList.add(new String[]{"pankaj", "badgujar"});
+        linkNameList.add(new String[]{"priyanka", "karodpati"});
+
+        //creating array adapter for simple_list_item_2
+        ArrayAdapter<String[]> adapter = new ArrayAdapter<String[]>(this,
+                android.R.layout.simple_list_item_2, android.R.id.text1, linkNameList) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+
+                String[] entry = linkNameList.get(position);
+
+                TextView text1 = (TextView)view.findViewById(android.R.id.text1);
+                TextView text2 = (TextView)view.findViewById(android.R.id.text2);
+                text1.setText(entry[0]);
+                text2.setText(entry[1]);
+
+                return view;
+            }
+        };
+
+
+        //setting adapter for the list view
         ListView listView = findViewById(R.id.linkList);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, linkNameList);
-        listView.setAdapter(arrayAdapter);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Snackbar.make(view,linkNameList.get(position)[1],Snackbar.LENGTH_LONG).show();
+            }
+        });
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +97,6 @@ public class LinkCollector extends AppCompatActivity {
                 final EditText urlInput = (EditText) promptView.findViewById(R.id.linkUrlInput);
 
 
-
                 // setup a dialog window
                 alertDialogBuilder
                         .setCancelable(false)
@@ -75,12 +107,11 @@ public class LinkCollector extends AppCompatActivity {
                                 String name = nameInput.getText().toString();
                                 String url = urlInput.getText().toString();
 
-                                urlMap.put(name,url);
-                                linkNameList.add(name);
+                                urlMap.put(name, url);
+                                linkNameList.add(new String[]{name, url});
 
-                                Snackbar.make(parentView,name+" is added",Snackbar.LENGTH_LONG)
+                                Snackbar.make(parentView, name + " is added", Snackbar.LENGTH_LONG)
                                         .setAction("Action", null).show();
-
 
 
                             }
@@ -93,16 +124,14 @@ public class LinkCollector extends AppCompatActivity {
                                 });
 
                 // create an alert dialog
-                AlertDialog alertD = alertDialogBuilder.create();
+                AlertDialog inputDialog = alertDialogBuilder.create();
 
-                alertD.show();
+                inputDialog.show();
 
-
-
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
     }
+
+
 
 }
