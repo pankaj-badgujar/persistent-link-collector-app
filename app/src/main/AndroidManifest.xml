@@ -9,11 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_pb_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <receiver
+            android:name=".PowerChangeReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
         <activity
             android:name=".MathMagic"
             android:label="@string/mathMagicBtnText"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LinkCollector"
             android:label="@string/link_collector_btn_txt"
@@ -32,9 +36,6 @@
             android:name=".HelloWorld"
             android:label="@string/hello_world_btn_txt"
             android:theme="@style/AppTheme.NoActionBar" />
-
-
-
     </application>
 
 </manifest>

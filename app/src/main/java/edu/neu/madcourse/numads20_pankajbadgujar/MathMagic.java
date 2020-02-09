@@ -25,6 +25,8 @@ public class MathMagic extends AppCompatActivity {
     protected List<Integer> primes;
     protected TextView primeNumbersFoundLabel;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,6 +136,12 @@ public class MathMagic extends AppCompatActivity {
         protected void onCancelled() {
             currentStatusTxt.setText(R.string.searchEndedTxt);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        findPrimesTask.cancel(true);
     }
 
 }
