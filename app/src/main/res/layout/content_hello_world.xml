@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".About"
+    tools:context=".HelloWorld"
     tools:layout_editor_absoluteY="56dp"
-    tools:showIn="@layout/about_activity">
+    tools:showIn="@layout/activity_hello_world">
 
     <TextView
         android:id="@+id/helloWorldText"
@@ -31,7 +31,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="81dp"
         android:onClick="showAbout"
-        android:text="@string/about"
+        android:text="@string/hello_world_btn_txt"
         app:layout_constraintBottom_toTopOf="@+id/nameText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

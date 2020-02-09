@@ -10,12 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".MathMagic"
+            android:label="@string/mathMagicBtnText"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
             android:name=".LinkCollector"
-            android:label="@string/title_activity_link_collector"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/link_collector_btn_txt"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Home"
-            android:label="Home"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +29,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".About"
-            android:label="@string/about"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".HelloWorld"
+            android:label="@string/hello_world_btn_txt"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+
     </application>
 
 </manifest>
