@@ -3,6 +3,10 @@ package edu.neu.madcourse.numads20_pankajbadgujar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +75,27 @@ public class MathMagic extends AppCompatActivity {
         findPrimesTask.cancel(true);
     }
 
+    public void startWatchTime(View view) {
+        final int ONE_MINUTE_INTERVAL = 60000;
+
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, WatchTimeReceiver.class);
+        PendingIntent pi = PendingIntent.getBroadcast(this, 1, intent, 0);
+
+        am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), ONE_MINUTE_INTERVAL, pi);
+        Snackbar.make(view, R.string.watch_time_started, Snackbar.LENGTH_SHORT).show();
+    }
+
+    public void cancelWatchTime(View view) {
+        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, WatchTimeReceiver.class);
+        PendingIntent pi = PendingIntent.getBroadcast(this, 1, intent, 0);
+
+        am.cancel(pi);
+        Snackbar.make(view, R.string.watch_time_cancelled, Snackbar.LENGTH_SHORT).show();
+    }
+
+
     private void showCancelButton() {
         findPrimesBtn.setVisibility(View.INVISIBLE);
         cancelSearchBtn.setVisibility(View.VISIBLE);
@@ -100,7 +127,7 @@ public class MathMagic extends AppCompatActivity {
                 boolean isPrime = true;
                 publishProgress(current);
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
 
                 }
@@ -141,7 +168,9 @@ public class MathMagic extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        findPrimesTask.cancel(true);
+        if (findPrimesTask != null) {
+            findPrimesTask.cancel(true);
+        }
     }
 
 }

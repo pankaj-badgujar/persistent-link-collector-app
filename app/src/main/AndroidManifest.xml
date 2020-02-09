@@ -36,6 +36,11 @@
             android:name=".HelloWorld"
             android:label="@string/hello_world_btn_txt"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver android:name=".WatchTimeReceiver"
+            android:enabled="true"
+            android:exported="true"
+            />
     </application>
 
 </manifest>
