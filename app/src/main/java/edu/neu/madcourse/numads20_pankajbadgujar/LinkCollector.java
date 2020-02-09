@@ -1,6 +1,5 @@
 package edu.neu.madcourse.numads20_pankajbadgujar;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,7 +9,6 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import androidx.annotation.IdRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -26,10 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
 
 public class LinkCollector extends AppCompatActivity {
 
@@ -38,7 +33,7 @@ public class LinkCollector extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.link_collector_activity);
+        setContentView(R.layout.activity_link_collector);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -85,14 +80,14 @@ public class LinkCollector extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // get input_prompt.xml view
+                // get activity_input_promptut_prompt.xml view
                 LayoutInflater layoutInflater = LayoutInflater.from(context);
                 final View parentView = view;
-                final View promptView = layoutInflater.inflate(R.layout.input_prompt, null);
+                final View promptView = layoutInflater.inflate(R.layout.activity_input_prompt, null);
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
-                // set input_prompt.xml to be the layout file of the inputDialog builder
+                // set activity_input_promptut_prompt.xml to be the layout file of the inputDialog builder
                 alertDialogBuilder.setView(promptView);
 
                 final EditText nameInput = (EditText) promptView.findViewById(R.id.linkNameInput);

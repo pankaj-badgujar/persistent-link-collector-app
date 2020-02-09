@@ -1,16 +1,25 @@
 <resources>
     <string name="app_name">NUMADS20-PankajBadgujar</string>
     <string name="action_settings">Settings</string>
-    <string name="about">About</string>
     <string name="name">Pankaj Badgujar</string>
     <string name="email">badgujarpankaj24@gmail.com</string>
     <string name="hello_world_btn_txt">Hello World</string>
     <string name="link_collector_btn_txt">Link Collector</string>
-    <string name="title_activity_link_collector">Link Collector</string>
     <string name="saved_links">Saved Links</string>
     <string name="link_name">Link Name :</string>
     <string name="url_text">URL :</string>
     <string name="save_text">Save</string>
-    <string name="cancel_text">CANCEL</string>
+    <string name="cancel_text">Cancel Search</string>
     <string name="no_links_saved_yet">no links saved yet!</string>
+    <string name="mathMagicBtnText">Math Magic</string>
+    <string name="find_primes">Find Primes</string>
+    <string name="currentStatus">Checking if %1$d is prime..</string>
+    <string name="searchEndedTxt">Search Ended !</string>
+    <string name="prime_numbers_found">Prime numbers found: (scroll to see more)</string>
+    <string name="watch_time">Watch Time</string>
+    <string name="start_watch_time">Start Watch Time</string>
+    <string name="stop_watch_time">Stop Watch Time</string>
+    <string name="one_minute_alert">1 minute ALERT !! </string>
+    <string name="watch_time_started">"1 minute watch time started"</string>
+    <string name="watch_time_cancelled">"1 minute watch time cancelled"</string>
 </resources>

@@ -6,35 +6,46 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Home"
-    tools:showIn="@layout/home_activity">
+    tools:showIn="@layout/activity_home">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/helloWorldBtn"
         android:layout_width="234dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginBottom="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="30dp"
         android:onClick="startAboutActivity"
         android:text="@string/hello_world_btn_txt"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/linkCollectorBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="233dp"
-        android:layout_height="59dp"
-        android:layout_marginBottom="455dp"
+        android:id="@+id/linkCollectorBtn"
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:onClick="startLinkCollectorActivity"
         android:text="@string/link_collector_btn_txt"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/mathMagicBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helloWorldBtn" />
+
+    <Button
+        android:id="@+id/mathMagicBtn"
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="357dp"
+        android:onClick="startMathMagicActivity"
+        android:text="@string/mathMagicBtnText"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/linkCollectorBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
