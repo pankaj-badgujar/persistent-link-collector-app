@@ -15,4 +15,5 @@
     <string name="find_primes">Find Primes</string>
     <string name="currentStatus">Checking if %1$d is prime..</string>
     <string name="searchEndedTxt">Search Ended !</string>
+    <string name="prime_numbers_found">Prime numbers found:</string>
 </resources>
