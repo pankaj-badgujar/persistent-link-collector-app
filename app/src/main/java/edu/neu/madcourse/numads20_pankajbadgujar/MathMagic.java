@@ -82,7 +82,8 @@ public class MathMagic extends AppCompatActivity {
         Intent intent = new Intent(this, WatchTimeReceiver.class);
         PendingIntent pi = PendingIntent.getBroadcast(this, 1, intent, 0);
 
-        am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), ONE_MINUTE_INTERVAL, pi);
+        am.setRepeating(AlarmManager.RTC_WAKEUP,
+                System.currentTimeMillis()+ONE_MINUTE_INTERVAL, ONE_MINUTE_INTERVAL, pi);
         Snackbar.make(view, R.string.watch_time_started, Snackbar.LENGTH_SHORT).show();
     }
 
@@ -117,6 +118,7 @@ public class MathMagic extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Object... voids) {
+            final int SLEEP_DURATION_MILLI = 500;
             int current = 2;
             while (true) {
 
@@ -127,7 +129,7 @@ public class MathMagic extends AppCompatActivity {
                 boolean isPrime = true;
                 publishProgress(current);
                 try {
-                    Thread.sleep(10);
+                    Thread.sleep(SLEEP_DURATION_MILLI);
                 } catch (InterruptedException e) {
 
                 }
