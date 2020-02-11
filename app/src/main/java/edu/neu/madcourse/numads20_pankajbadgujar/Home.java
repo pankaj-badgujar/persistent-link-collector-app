@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.Toast;
 
 public class Home extends AppCompatActivity {
 
@@ -46,6 +47,10 @@ public class Home extends AppCompatActivity {
         receiver = new PowerChangeReceiver();
         registerReceiver(receiver, filter);
 
+    }
+
+    public void onLatitudeLongitudeButtonClick(View view){
+        Toast.makeText(this,"latitude",Toast.LENGTH_SHORT).show();
     }
 
     @Override

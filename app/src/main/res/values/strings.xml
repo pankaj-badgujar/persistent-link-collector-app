@@ -22,4 +22,5 @@
     <string name="one_minute_alert">1 minute ALERT !! </string>
     <string name="watch_time_started">"1 minute watch time started"</string>
     <string name="watch_time_cancelled">"1 minute watch time cancelled"</string>
+    <string name="latitude_longitude">Latitude Longitude</string>
 </resources>
