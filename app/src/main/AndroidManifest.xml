@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_pb_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".LatitudeLongitude"
+            android:label="@string/title_activity_latitude_longitude"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <receiver
             android:name=".PowerChangeReceiver"
