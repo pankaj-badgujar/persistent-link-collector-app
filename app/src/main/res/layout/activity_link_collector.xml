@@ -54,10 +54,6 @@
             android:footerDividersEnabled="true"
             android:headerDividersEnabled="true" />
 
-        <include
-            layout="@layout/content_link_collector"
-            android:foregroundTint="@color/colorSuccess"
-            android:foregroundTintMode="add" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

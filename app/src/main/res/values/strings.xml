@@ -23,6 +23,7 @@
     <string name="watch_time_started">"1 minute watch time started"</string>
     <string name="watch_time_cancelled">"1 minute watch time cancelled"</string>
     <string name="latitude_longitude">Latitude Longitude</string>
-    <string name="latitude">Latitude: %1$d</string>
-    <string name="longitude">Longitude: %1$d</string>
+    <string name="latitude">Latitude:</string>
+    <string name="longitude">Longitude:</string>
+    <string name="title_activity_latitude_longitude">Location</string>
 </resources>
