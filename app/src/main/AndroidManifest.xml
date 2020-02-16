@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_pb_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
         <receiver
             android:name=".PowerChangeReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
 
         <activity
             android:name=".MathMagic"
@@ -37,10 +39,10 @@
             android:label="@string/hello_world_btn_txt"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <receiver android:name=".WatchTimeReceiver"
+        <receiver
+            android:name=".WatchTimeReceiver"
             android:enabled="true"
-            android:exported="true"
-            />
+            android:exported="true" />
     </application>
 
 </manifest>
