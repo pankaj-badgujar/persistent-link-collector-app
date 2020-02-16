@@ -12,12 +12,10 @@
         android:id="@+id/helloWorldBtn"
         android:layout_width="234dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="74dp"
         android:onClick="startAboutActivity"
         android:text="@string/hello_world_btn_txt"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/linkCollectorBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,11 +24,10 @@
         android:id="@+id/linkCollectorBtn"
         android:layout_width="234dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="43dp"
         android:onClick="startLinkCollectorActivity"
         android:text="@string/link_collector_btn_txt"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/mathMagicBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/helloWorldBtn" />
@@ -39,13 +36,24 @@
         android:id="@+id/mathMagicBtn"
         android:layout_width="234dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="357dp"
+        android:layout_marginTop="44dp"
         android:onClick="startMathMagicActivity"
         android:text="@string/mathMagicBtnText"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linkCollectorBtn" />
+
+    <Button
+        android:id="@+id/latitudeLongitudeBtn"
+        android:layout_width="234dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:onClick="onLatitudeLongitudeButtonClick"
+        android:text="@string/latitude_longitude"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mathMagicBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

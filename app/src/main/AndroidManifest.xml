@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.neu.madcourse.numads20_pankajbadgujar">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_pb"
@@ -9,10 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_pb_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".LatitudeLongitude"
+            android:label="@string/title_activity_latitude_longitude"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <receiver
             android:name=".PowerChangeReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
 
         <activity
             android:name=".MathMagic"
@@ -37,10 +45,10 @@
             android:label="@string/hello_world_btn_txt"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <receiver android:name=".WatchTimeReceiver"
+        <receiver
+            android:name=".WatchTimeReceiver"
             android:enabled="true"
-            android:exported="true"
-            />
+            android:exported="true" />
     </application>
 
 </manifest>

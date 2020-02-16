@@ -31,11 +31,11 @@
             android:id="@+id/savedLinksLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="25dp"
             android:fontFamily="sans-serif-medium"
             android:text="@string/saved_links"
-            android:textSize="20sp"
-            android:layout_margin="25dp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/noLinksSavedLabel"
@@ -51,11 +51,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:dividerHeight="3dp"
-            android:headerDividersEnabled="true"
-            android:footerDividersEnabled="true"/>
-    </LinearLayout>
+            android:footerDividersEnabled="true"
+            android:headerDividersEnabled="true" />
 
-    <include layout="@layout/content_link_collector" />
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -64,7 +63,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:backgroundTint="#7E60BD"
-        app:rippleColor="#FFFFFF"
+        app:rippleColor="@color/colorAccent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

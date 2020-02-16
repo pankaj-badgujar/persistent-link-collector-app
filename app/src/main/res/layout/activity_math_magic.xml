@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/background_light"
     tools:context=".MathMagic">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -81,6 +82,7 @@
         android:layout_marginStart="65dp"
         android:layout_marginEnd="65dp"
         android:layout_marginBottom="45dp"
+        android:background="#237E2BDD"
         android:fastScrollEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/startWatchTime"
         app:layout_constraintEnd_toEndOf="parent"
