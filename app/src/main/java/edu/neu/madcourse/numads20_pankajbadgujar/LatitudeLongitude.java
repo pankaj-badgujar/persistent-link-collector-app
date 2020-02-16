@@ -17,18 +17,32 @@ import androidx.core.app.ActivityCompat;
 import android.provider.Settings;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
 
 public class LatitudeLongitude extends AppCompatActivity {
 
     private static final int REQUEST_LOCATION = 1;
     private final Context context = this;
     private LocationManager lm;
-    private TextView latitudeValue;
-    private TextView longitudeValue;
+
+    //textview for GPS location
+    private TextView latGPS;
+    private TextView longiGPS;
+
+    //textview for Network location
+    private TextView latNetwork;
+    private TextView longiNetwork;
+
+    //textview for passive location
+    private TextView latPassive;
+    private TextView longiPassive;
+
 
     private final String TAG = "LOCATION_TAG";
+
+    private Map<String, TextView[]> locationFieldsMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +51,31 @@ public class LatitudeLongitude extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        latitudeValue = findViewById(R.id.latitudeValue);
-        longitudeValue = findViewById(R.id.longitudeValue);
+        //initialize GPS fields
+        latGPS = findViewById(R.id.latGpsVal);
+        longiGPS = findViewById(R.id.lonGpsVal);
+
+        //initialize network fields
+        latNetwork = findViewById(R.id.latNetworkVal);
+        longiNetwork = findViewById(R.id.lonNetworkVal);
+
+        //initialize passive fields
+        latPassive = findViewById(R.id.latPassiveVal);
+        longiPassive = findViewById(R.id.lonPassiveVal);
+
+        locationFieldsMap = new HashMap<>();
+        populateLocationFieldsMap();
 
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
 
         calculateLatitudeLongitude();
+    }
+
+    private void populateLocationFieldsMap() {
+        locationFieldsMap.put("GPS", new TextView[]{latGPS, longiGPS});
+        locationFieldsMap.put("Network", new TextView[]{latNetwork, longiNetwork});
+        locationFieldsMap.put("Passive", new TextView[]{latPassive, longiPassive});
     }
 
 
@@ -69,29 +101,40 @@ public class LatitudeLongitude extends AppCompatActivity {
             Location locationNetwork = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
             Location locationPassive = lm.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
 
-            if (locationGPS != null) {
-                Log.i(TAG,"GPS");
-                extractCoordinatesAndDisplay(locationGPS);
-            } else if (locationNetwork != null) {
-                Log.i(TAG,"Network");
-                extractCoordinatesAndDisplay(locationNetwork);
-            } else
-                if (locationPassive != null) {
-                Log.i(TAG,"Passive");
-                extractCoordinatesAndDisplay(locationPassive);
 
-            } else {
-                Toast.makeText(this, "Cannot get your location", Toast.LENGTH_SHORT).show();
-            }
+            renderLocation(locationGPS, "GPS");
+            renderLocation(locationNetwork, "Network");
+            renderLocation(locationPassive, "Passive");
         }
     }
 
-    private void extractCoordinatesAndDisplay(Location location) {
-        String latitude = String.valueOf(location.getLatitude());
-        String longitude = String.valueOf(location.getLongitude());
+    private void renderLocation(Location location, String locationType) {
 
-        latitudeValue.setText(latitude);
-        longitudeValue.setText(longitude);
+        String latitude;
+        String longitude;
+        TextView[] fields = locationFieldsMap.get(locationType);
+
+        if (location == null) {
+
+            latitude = getText(R.string.value_not_fetched).toString();
+            longitude = getText(R.string.value_not_fetched).toString();
+
+        } else {
+
+            latitude = String.valueOf(location.getLatitude());
+            longitude = String.valueOf(location.getLongitude());
+        }
+
+        //logging results for verification
+        Log.i(locationType,latitude);
+        Log.i(locationType,longitude);
+
+        try {
+            fields[0].setText(latitude);
+            fields[1].setText(longitude);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     private void startGPS() {
