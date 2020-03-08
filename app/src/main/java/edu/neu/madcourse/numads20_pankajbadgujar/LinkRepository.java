@@ -23,10 +23,6 @@ public class LinkRepository {
         new InsertLinkAsyncTask(linkDao).execute(newLink);
     }
 
-    public void updateLink(Link newLink){
-        new UpdateLinkAsyncTask(linkDao).execute(newLink);
-    }
-
     public void deleteLink(Link link){
         new DeleteLinkAsyncTask(linkDao).execute(link);
     }
@@ -53,22 +49,6 @@ public class LinkRepository {
         @Override
         protected Void doInBackground(final Link... links) {
             asyncTaskDao.addLink(links[0]);
-            return null;
-        }
-    }
-
-    private static class UpdateLinkAsyncTask extends
-            AsyncTask<Link, Void, Void> {
-
-        private LinkDAO asyncTaskDao;
-
-        private UpdateLinkAsyncTask(LinkDAO dao) {
-            asyncTaskDao = dao;
-        }
-
-        @Override
-        protected Void doInBackground(final Link... links) {
-            asyncTaskDao.updateLink(links[0]);
             return null;
         }
     }

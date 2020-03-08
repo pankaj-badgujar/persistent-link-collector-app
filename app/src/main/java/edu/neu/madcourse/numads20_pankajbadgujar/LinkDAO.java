@@ -15,9 +15,6 @@ public interface LinkDAO {
     @Insert
     void addLink(Link link);
 
-    @Update
-    void updateLink(Link link);
-
     @Delete
     void deleteLink(Link link);
 

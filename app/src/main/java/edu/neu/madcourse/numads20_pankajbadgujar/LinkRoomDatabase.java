@@ -47,7 +47,7 @@ public abstract class LinkRoomDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            asyncDao.addLink(new Link("Demo Link", "www.google.com"));
+            asyncDao.addLink(new Link("Example Link", "www.google.com"));
             return null;
         }
     }

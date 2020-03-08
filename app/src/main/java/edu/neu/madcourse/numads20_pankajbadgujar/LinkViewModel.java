@@ -23,10 +23,6 @@ public class LinkViewModel extends AndroidViewModel {
         repository.addLink(link);
     }
 
-    public void updateLink(Link link){
-        repository.updateLink(link);
-    }
-
     public void deleteLink(Link link){
         repository.deleteLink(link);
     }
