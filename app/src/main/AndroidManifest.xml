@@ -13,9 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".PersistentLinkCollector"
+            android:label="@string/persistent_link_collector"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".LatitudeLongitude"
             android:label="@string/title_activity_latitude_longitude"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver
             android:name=".PowerChangeReceiver"

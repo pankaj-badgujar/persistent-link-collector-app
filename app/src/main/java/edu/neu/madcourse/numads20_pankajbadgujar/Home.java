@@ -44,6 +44,10 @@ public class Home extends AppCompatActivity {
         startActivity(new Intent(this, LatitudeLongitude.class));
     }
 
+    public void onPersistentLinkCollectorButtonClick(View view){
+        startActivity(new Intent(this, PersistentLinkCollector.class));
+    }
+
     private void configureReceiver() {
         IntentFilter filter = new IntentFilter();
         filter.addAction("android.intent.action.ACTION_POWER_DISCONNECTED");

@@ -27,4 +27,5 @@
     <string name="longitude">Longitude:</string>
     <string name="title_activity_latitude_longitude">Location</string>
     <string name="value_not_fetched">Could not fetch value</string>
+    <string name="persistent_link_collector">Persistent Link Collector</string>
 </resources>
